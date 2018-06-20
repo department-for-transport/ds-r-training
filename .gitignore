@@ -40,3 +40,7 @@ vignettes/*.pdf
 # End of https://www.gitignore.io/api/R
 packrat/lib*/
 .Rproj.user
+
+# Don't commit rendered bookdown
+_book/
+_bookdown_files/

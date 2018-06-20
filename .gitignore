@@ -44,3 +44,4 @@ packrat/lib*/
 # Don't commit rendered bookdown
 _book/
 _bookdown_files/
+libs/

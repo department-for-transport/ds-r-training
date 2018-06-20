@@ -38,3 +38,5 @@ vignettes/*.pdf
 
 
 # End of https://www.gitignore.io/api/R
+packrat/lib*/
+.Rproj.user

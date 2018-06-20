@@ -1,5 +1,8 @@
 language: r
 
+before_install:
+ - openssl aes-256-cbc -K $encrypted_77ab6371db8f_key -iv $encrypted_77ab6371db8f_iv -in github_deploy_key.enc -out github_deploy_key -d
+
 install:
   - R -e "0" --args --bootstrap-packrat
   

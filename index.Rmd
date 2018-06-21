@@ -1,0 +1,34 @@
+--- 
+title: "DfT intro R Training"
+author: "Names go here..."
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+github-repo: departmentfortransport/ds-processes
+description: "This book will contain the training resources for getting started with R at DfT. For now, it's just a placeholder for content."
+---
+
+# Placeholder
+
+Content to be added.
+
+Just testing R evaluates:
+
+```{r eval=TRUE}
+x <- 10
+
+10 * 3
+```
+
+
+
+```{r include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown'
+), 'packages.bib')
+```

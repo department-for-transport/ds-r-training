@@ -3,40 +3,58 @@ title: "DfT Introduction to R"
 author: "Will Bowditch" #Add names as chapters are added!
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
-output: bookdown::gitbook
+output: 
+  bookdown::gitbook:
+    df_print: paged
+    fig_width: 7
+    fig_height: 6
 documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
 github-repo: departmentfortransport/ds-processes
 description: "An introduction to working with R at the Department for Transport"
+
 ---
 ```{r include=FALSE}
 require(dplyr)
+require(knitr)
+
+options(knitr.table.format = "html")
 
 # Load example data for Road Casualties in Great Britain 1969-84
-data(Seatbelts)
+data(mtcars)
 
 # Look at the data
-sb <- data.frame(Seatbelts)
+mtcars <- tibble::as.tibble(mtcars) %>%
+  # Add rows for dplyr example
+  tibble::rownames_to_column(var = "car")
 ```
 
 # Why do we need _another_ book?
 
 `R` is a very flexible programming language, which inevitably means there are lots of ways to achieve the same result. This is true of all programming languages, but is particularly exaggerated in `R` which makes use of ['meta-programming'](http://adv-r.had.co.nz/). 
 
-For example, here is how to calculate a new variable using standard R:
+For example, here is how to calculate a new variable using standard R and filter on a variable:
 ```{r}
-# sb contains data for Road Casualties in Great Britain 1969-84
-sb$Percent_killed_in_rear <- sb$DriversKilled / sb$rear
+# Calculate kilometers per litre from miles per gallon
+mtcars$kpl <- mtcars$mpg * 0.425144
+
+# Select cars with a horsepower greater than 250
+mtcars[mtcars$hp > 250, ]
 ```
 
 Here's the same thing using Tidyverse style R:
-```{r, eval = FALSE}
+```{r}
 
-sb %>%
+mtcars %>%
+  # Calculate kilometers per litre
   dplyr::mutate(
-    Percent_killed_in_rear = DriversKilled / rear
+    kpl = mpg * 0.425144
+  ) %>%
+  # Filter cars with a horsepower greater than 250
+  dplyr::filter(
+    hp > 250
   )
 ```
 
@@ -57,7 +75,7 @@ This book is not static - new chapters can be added and current chapters can be 
 ```{r include=FALSE}
 # automatically create a bib database for R packages
 knitr::write_bib(c(
-  .packages(), 'bookdown', 'knitr', 'rmarkdown'
-), 'packages.bib')
+  .packages(), "bookdown", "knitr", "rmarkdown"
+), "packages.bib")
 ```
 

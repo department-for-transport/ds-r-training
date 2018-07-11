@@ -5,27 +5,27 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>DfT intro R Training</title>
-  <meta name="description" content="This book will contain the training resources for getting started with R at DfT. For now, it’s just a placeholder for content.">
+  <title>DfT Introduction to R</title>
+  <meta name="description" content="An introduction to working with R at the Department for Transport">
   <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
 
-  <meta property="og:title" content="DfT intro R Training" />
+  <meta property="og:title" content="DfT Introduction to R" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="This book will contain the training resources for getting started with R at DfT. For now, it’s just a placeholder for content." />
+  <meta property="og:description" content="An introduction to working with R at the Department for Transport" />
   <meta name="github-repo" content="departmentfortransport/ds-processes" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="DfT intro R Training" />
+  <meta name="twitter:title" content="DfT Introduction to R" />
   
-  <meta name="twitter:description" content="This book will contain the training resources for getting started with R at DfT. For now, it’s just a placeholder for content." />
+  <meta name="twitter:description" content="An introduction to working with R at the Department for Transport" />
   
 
-<meta name="author" content="Names go here…">
+<meta name="author" content="Will Bowditch">
 
 
-<meta name="date" content="2018-06-21">
+<meta name="date" content="2018-07-11">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -47,6 +47,8 @@
 
 
 
+<link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+<script src="libs/pagedtable-1.1/js/pagedtable.js"></script>
 
 
 <style type="text/css">
@@ -127,7 +129,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Placeholder</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Why do we need <em>another</em> book?</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#coding-standards"><i class="fa fa-check"></i><b>1.1</b> Coding standards</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#adding-to-the-book"><i class="fa fa-check"></i><b>1.2</b> Adding to the book</a></li>
+</ul></li>
 <li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
 </ul>
 
@@ -138,7 +143,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">DfT intro R Training</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">DfT Introduction to R</a>
           </h1>
         </div>
 
@@ -147,19 +152,50 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="header">
-<h1 class="title">DfT intro R Training</h1>
-<h4 class="author"><em>Names go here…</em></h4>
-<h4 class="date"><em>2018-06-21</em></h4>
+<h1 class="title">DfT Introduction to R</h1>
+<h4 class="author"><em>Will Bowditch</em></h4>
+<h4 class="date"><em>2018-07-11</em></h4>
 </div>
-<div id="placeholder" class="section level1">
-<h1><span class="header-section-number">Chapter 1</span> Placeholder</h1>
-<p>Content to be added.</p>
-<p>Just testing R evaluates:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="dv">10</span></a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="dv">10</span> <span class="op">*</span><span class="st"> </span><span class="dv">3</span></a></code></pre></div>
-<pre><code>## [1] 30</code></pre>
+<div id="why-do-we-need-another-book" class="section level1">
+<h1><span class="header-section-number">Chapter 1</span> Why do we need <em>another</em> book?</h1>
+<p><code>R</code> is a very flexible programming language, which inevitably means there are lots of ways to achieve the same result. This is true of all programming languages, but is particularly exaggerated in <code>R</code> which makes use of <a href="http://adv-r.had.co.nz/">‘meta-programming’</a>.</p>
+<p>For example, here is how to calculate a new variable using standard R and filter on a variable:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># Calculate kilometers per litre from miles per gallon</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">mtcars<span class="op">$</span>kpl &lt;-<span class="st"> </span>mtcars<span class="op">$</span>mpg <span class="op">*</span><span class="st"> </span><span class="fl">0.425144</span></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="co"># Select cars with a horsepower greater than 250</span></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">mtcars[mtcars<span class="op">$</span>hp <span class="op">&gt;</span><span class="st"> </span><span class="dv">250</span>, ]</a></code></pre></div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["car"],"name":[1],"type":["chr"],"align":["left"]},{"label":["mpg"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["cyl"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["disp"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["hp"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["drat"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["wt"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["qsec"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["vs"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["am"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["gear"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["carb"],"name":[12],"type":["dbl"],"align":["right"]},{"label":["kpl"],"name":[13],"type":["dbl"],"align":["right"]}],"data":[{"1":"Ford Pantera L","2":"15.8","3":"8","4":"351","5":"264","6":"4.22","7":"3.17","8":"14.5","9":"0","10":"1","11":"5","12":"4","13":"6.717275"},{"1":"Maserati Bora","2":"15.0","3":"8","4":"301","5":"335","6":"3.54","7":"3.57","8":"14.6","9":"0","10":"1","11":"5","12":"8","13":"6.377160"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<p>Here’s the same thing using Tidyverse style R:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">mtcars <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="st">  </span><span class="co"># Calculate kilometers per litre</span></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(</a>
+<a class="sourceLine" id="cb2-4" data-line-number="4">    <span class="dt">kpl =</span> mpg <span class="op">*</span><span class="st"> </span><span class="fl">0.425144</span></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5">  ) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="st">  </span><span class="co"># Filter cars with a horsepower greater than 250</span></a>
+<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(</a>
+<a class="sourceLine" id="cb2-8" data-line-number="8">    hp <span class="op">&gt;</span><span class="st"> </span><span class="dv">250</span></a>
+<a class="sourceLine" id="cb2-9" data-line-number="9">  )</a></code></pre></div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["car"],"name":[1],"type":["chr"],"align":["left"]},{"label":["mpg"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["cyl"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["disp"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["hp"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["drat"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["wt"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["qsec"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["vs"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["am"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["gear"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["carb"],"name":[12],"type":["dbl"],"align":["right"]},{"label":["kpl"],"name":[13],"type":["dbl"],"align":["right"]}],"data":[{"1":"Ford Pantera L","2":"15.8","3":"8","4":"351","5":"264","6":"4.22","7":"3.17","8":"14.5","9":"0","10":"1","11":"5","12":"4","13":"6.717275"},{"1":"Maserati Bora","2":"15.0","3":"8","4":"301","5":"335","6":"3.54","7":"3.57","8":"14.6","9":"0","10":"1","11":"5","12":"8","13":"6.377160"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<p>These coding styles are quite different. As people write more code across the Department, it will become increasingly important that code can be handed over to other R users. It is much easier to pick up code written by others if it uses the same coding style you are familiar with.</p>
+<p>This is the main motivation for this book, to establish a way of coding that represents a sensible default for those who are new to R that is readily transferable across DfT.</p>
+<div id="coding-standards" class="section level2">
+<h2><span class="header-section-number">1.1</span> Coding standards</h2>
+<p>Related to this, the Data Science team maintain a <a href="https://departmentfortransport.github.io/ds-processes/Coding_standards/r.html">coding standards document</a>, that outlines some best practices when writing R code. This is not prescriptive and goes beyond the scope of this document, but might be useful for managing your R projects.</p>
+</div>
+<div id="adding-to-the-book" class="section level2">
+<h2><span class="header-section-number">1.2</span> Adding to the book</h2>
+<p>This book is not static - new chapters can be added and current chapters can be amended. If you want to edit or write a chapter for the book, check out the <a href="https://github.com/departmentfortransport/ds-r-training">GitHub page</a>.</p>
 
+</div>
 </div>
             </section>
 

@@ -1,11 +1,21 @@
 language: r
 
+cache:
+  directories:
+    - $TRAVIS_BUILD_DIR/packrat/src
+    - $TRAVIS_BUILD_DIR/packrat/lib
+  packages: true
+
+r_github_packages:
+  - jimhester/lintr
+
 before_install:
  - openssl aes-256-cbc -K $encrypted_77ab6371db8f_key -iv $encrypted_77ab6371db8f_iv -in github_deploy_key.enc -out github_deploy_key -d
 
 install:
   - R -e "0" --args --bootstrap-packrat
-  
+  - R -e "packrat::restore(restart = FALSE)"
+
 before_script:
 - chmod +x ./_build.sh
 - chmod +x ./_deploy.sh

@@ -5,7 +5,7 @@ date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 output: 
   bookdown::gitbook:
-    df_print: paged
+    df_print: kable
     fig_width: 7
     fig_height: 6
 documentclass: book

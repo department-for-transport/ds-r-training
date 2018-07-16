@@ -41,7 +41,7 @@ For example, here is how to calculate a new variable using standard R and filter
 mtcars$kpl <- mtcars$mpg * 0.425144
 
 # Select cars with a horsepower greater than 250 & show only mpg and kpl columns
-mtcars[mtcars$hp > 250, c('car','mpg', 'kpl')]
+mtcars[mtcars$hp > 250, c("car", "mpg", "kpl")]
 
 ```
 

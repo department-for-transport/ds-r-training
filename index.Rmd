@@ -5,7 +5,7 @@ date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 output: 
   bookdown::gitbook:
-    df_print: paged
+    df_print: kable
     fig_width: 7
     fig_height: 6
 documentclass: book
@@ -40,8 +40,9 @@ For example, here is how to calculate a new variable using standard R and filter
 # Calculate kilometers per litre from miles per gallon
 mtcars$kpl <- mtcars$mpg * 0.425144
 
-# Select cars with a horsepower greater than 250
-mtcars[mtcars$hp > 250, ]
+# Select cars with a horsepower greater than 250 & show only mpg and kpl columns
+mtcars[mtcars$hp > 250, c("car", "mpg", "kpl")]
+
 ```
 
 Here's the same thing using Tidyverse style R:
@@ -55,7 +56,9 @@ mtcars %>%
   # Filter cars with a horsepower greater than 250
   dplyr::filter(
     hp > 250
-  )
+  ) %>%
+  # Take only the car, mpg, and newly created kpl columns
+  dplyr::select(car, mpg, kpl)
 ```
 
 These coding styles are quite different. As people write more code across the Department, it will become increasingly important that code can be handed over to other R users. It is much easier to pick up code written by others if it uses the same coding style you are familiar with. 

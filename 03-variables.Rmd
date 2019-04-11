@@ -1,0 +1,9 @@
+# Handling Variables {#variables}
+
+This chapter is for code examples of handling variables.
+
+
+```{r include=FALSE}
+# Every file must contain at least one R chunk due to the linting process.
+```
+
